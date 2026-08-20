@@ -1,0 +1,16 @@
+services:
+  database:
+    image: postgres:latest
+    container_name: dw_lector_db
+    restart: always
+    environment:
+      POSTGRES_DB: db_lector
+      POSTGRES_USER: lector
+      POSTGRES_PASSWORD: lector
+    ports:
+      - '5555:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
