@@ -6,6 +6,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Empresa } from 'src/empresa/entities/empresa.entity';
 import { Repository } from 'typeorm';
 import { UserActiveInterface } from 'src/common/interfaces/user-active.interface';
+import { FilterSalonDto } from './dto/filterSalon.dto';
 
 @Injectable()
 export class SalonService {
@@ -33,12 +34,47 @@ export class SalonService {
     return await this.salonRepository.save(salon);
   }
 
-  findAll() {
-    return this.salonRepository.find();
+  async findAll(filterSalonDto: FilterSalonDto, user: UserActiveInterface) {
+    const { page, limit } = filterSalonDto;
+    const query = this.salonRepository
+      .createQueryBuilder('salon')
+      .leftJoinAndSelect('salon.empresa', 'empresa')
+      .where('empresa.id_empresa = :id_empresa', {
+        id_empresa: user.id_empresa,
+      });
+
+    const shouldPaginate = !!page && !!limit;
+
+    if (shouldPaginate) {
+      query.skip((page - 1) * limit).take(limit);
+    }
+
+    const [data, total] = await query.getManyAndCount();
+
+    return {
+      data,
+      meta: {
+        total,
+        page: page ?? null,
+        limit: limit ?? null,
+        totalPages: shouldPaginate ? Math.ceil(total / limit) : null,
+      },
+    };
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} salon`;
+  async findOne(id: number, user: UserActiveInterface) {
+    const salon = await this.salonRepository.findOne({
+      where: {
+        id_salon: id,
+        empresa: {
+          id_empresa: user.id_empresa,
+        },
+      },
+    });
+    if (!salon) {
+      throw new BadRequestException('Salon no encontrado');
+    }
+    return salon;
   }
 
   update(id: number, updateSalonDto: UpdateSalonDto) {

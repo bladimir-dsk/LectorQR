@@ -6,15 +6,17 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { StudentService } from './student.service';
 import { CreateStudentDto } from './dto/create-student.dto';
 import { UpdateStudentDto } from './dto/update-student.dto';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiQuery, ApiTags } from '@nestjs/swagger';
 import { Auth } from 'src/auth/decorators/auth.decorator';
 import { Role } from 'src/common/enums/rol.enum';
 import { ActiveUser } from 'src/common/decorators/active-user.decorator';
 import { UserActiveInterface } from 'src/common/interfaces/user-active.interface';
+import { FilterStudentDto } from './dto/filterDto.dto';
 
 @Controller('student')
 @ApiTags('student')
@@ -32,8 +34,13 @@ export class StudentController {
   }
 
   @Get()
-  findAll(@ActiveUser() user: UserActiveInterface) {
-    return this.studentService.findAll(user);
+  @ApiQuery({ name: 'page', required: false, type: Number })
+  @ApiQuery({ name: 'limit', required: false, type: Number })
+  findAll(
+    @ActiveUser() user: UserActiveInterface,
+    @Query() filterDto: FilterStudentDto,
+  ) {
+    return this.studentService.findAll(filterDto, user);
   }
 
   @Get(':id')

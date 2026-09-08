@@ -8,6 +8,7 @@ import { Empresa } from 'src/empresa/entities/empresa.entity';
 import { UserActiveInterface } from 'src/common/interfaces/user-active.interface';
 import * as QRCode from 'qrcode';
 import { MailService } from 'src/mail/mail.service';
+import { FilterStudentDto } from './dto/filterDto.dto';
 
 @Injectable()
 export class StudentService {
@@ -52,14 +53,34 @@ export class StudentService {
     return student;
   }
 
-  async findAll(user: UserActiveInterface) {
-    return this.studentRepository.find({
-      where: {
-        empresa: {
-          id_empresa: user.id_empresa,
-        },
+  async findAll(filterDto: FilterStudentDto, user: UserActiveInterface) {
+    const { page, limit } = filterDto;
+
+    const query = this.studentRepository
+      .createQueryBuilder('student')
+      .leftJoinAndSelect('student.empresa', 'empresa')
+      .where('empresa.id_empresa = :id_empresa', {
+        id_empresa: user.id_empresa,
+      });
+
+    // Solo pagina si el front mandó ambos parámetros
+    const shouldPaginate = !!page && !!limit;
+
+    if (shouldPaginate) {
+      query.skip((page - 1) * limit).take(limit);
+    }
+
+    const [data, total] = await query.getManyAndCount();
+
+    return {
+      data,
+      meta: {
+        total,
+        page: page ?? null,
+        limit: limit ?? null,
+        totalPages: shouldPaginate ? Math.ceil(total / limit) : 1,
       },
-    });
+    };
   }
 
   findOne(id: number) {
