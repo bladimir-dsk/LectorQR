@@ -3,9 +3,9 @@ import { CreateSalonDto } from './dto/create-salon.dto';
 import { UpdateSalonDto } from './dto/update-salon.dto';
 import { Salon } from './entities/salon.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Empresa } from 'src/empresa/entities/empresa.entity';
+import { Empresa } from '@/empresa/entities/empresa.entity';
 import { Repository } from 'typeorm';
-import { UserActiveInterface } from 'src/common/interfaces/user-active.interface';
+import { UserActiveInterface } from '@/common/interfaces/user-active.interface';
 import { FilterSalonDto } from './dto/filterSalon.dto';
 
 @Injectable()

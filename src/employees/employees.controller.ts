@@ -13,10 +13,10 @@ import { EmployeesService } from './employees.service';
 import { CreateEmployeeDto } from './dto/create-employee.dto';
 import { UpdateEmployeeDto } from './dto/update-employee.dto';
 import { ApiBasicAuth, ApiTags } from '@nestjs/swagger';
-import { Auth } from 'src/auth/decorators/auth.decorator';
-import { Role } from 'src/common/enums/rol.enum';
-import { ActiveUser } from 'src/common/decorators/active-user.decorator';
-import { UserActiveInterface } from 'src/common/interfaces/user-active.interface';
+import { Auth } from '@/auth/decorators/auth.decorator';
+import { Role } from '@/common/enums/rol.enum';
+import { ActiveUser } from '@/common/decorators/active-user.decorator';
+import { UserActiveInterface } from '@/common/interfaces/user-active.interface';
 import { PaginationDto } from './dto/pagination.dto';
 
 @ApiTags('employees')

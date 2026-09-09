@@ -4,8 +4,8 @@ import { UpdateEmpresaDto } from './dto/update-empresa.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Empresa } from './entities/empresa.entity';
 import { Repository } from 'typeorm';
-import { UserActiveInterface } from 'src/common/interfaces/user-active.interface';
-import { User } from 'src/users/entities/user.entity';
+import { UserActiveInterface } from '@/common/interfaces/user-active.interface';
+import { User } from '@/users/entities/user.entity';
 
 @Injectable()
 export class EmpresaService {

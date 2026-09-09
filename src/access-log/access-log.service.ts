@@ -3,11 +3,11 @@ import { CreateAccessLogDto } from './dto/create-access-log.dto';
 import { UpdateAccessLogDto } from './dto/update-access-log.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { AccessLog } from './entities/access-log.entity';
-import { Empresa } from 'src/empresa/entities/empresa.entity';
+import { Empresa } from '@/empresa/entities/empresa.entity';
 import { Repository } from 'typeorm';
-import { UserActiveInterface } from 'src/common/interfaces/user-active.interface';
-import { Salon } from 'src/salon/entities/salon.entity';
-import { Student } from 'src/student/entities/student.entity';
+import { UserActiveInterface } from '@/common/interfaces/user-active.interface';
+import { Salon } from '@/salon/entities/salon.entity';
+import { Student } from '@/student/entities/student.entity';
 import { FilterAccessLogDto } from './dto/filter-access-log.dto';
 
 @Injectable()
@@ -73,7 +73,7 @@ export class AccessLogService {
     } catch (error) {
       // Red de seguridad: si dos requests llegan casi simultáneos y ambos
       // pasan el findOne de arriba, la BD igual rechaza el duplicado.
-      if (error.code === '23505') {
+      if (error === '23505') {
         throw new BadRequestException(
           `El estudiante ya registró su ingreso al salón "${salon.name}"`,
         );

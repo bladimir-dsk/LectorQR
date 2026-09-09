@@ -1,6 +1,6 @@
-import { Empresa } from 'src/empresa/entities/empresa.entity';
-import { Salon } from 'src/salon/entities/salon.entity';
-import { Student } from 'src/student/entities/student.entity';
+import { Empresa } from '@/empresa/entities/empresa.entity';
+import { Salon } from '@/salon/entities/salon.entity';
+import { Student } from '@/student/entities/student.entity';
 import {
   Column,
   CreateDateColumn,

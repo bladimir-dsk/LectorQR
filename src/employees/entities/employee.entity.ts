@@ -1,5 +1,5 @@
-import { Empresa } from 'src/empresa/entities/empresa.entity';
-import { User } from 'src/users/entities/user.entity';
+import { Empresa } from '@/empresa/entities/empresa.entity';
+import { User } from '@/users/entities/user.entity';
 import {
   Column,
   CreateDateColumn,

@@ -1,12 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
-import {
-  IsEmail,
-  IsNumber,
-  IsOptional,
-  IsString,
-  MinLength,
-} from 'class-validator';
-import { Estatus } from 'src/common/enums/estatus.enum';
+import { IsEmail, IsOptional, IsString, MinLength } from 'class-validator';
+import { Estatus } from '@/common/enums/estatus.enum';
 
 export class UpdateProfileDto {
   @ApiProperty()

@@ -3,9 +3,9 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Empresa } from 'src/empresa/entities/empresa.entity';
-import { UserActiveInterface } from 'src/common/interfaces/user-active.interface';
-import { Role } from 'src/common/enums/rol.enum';
+import { Empresa } from '@/empresa/entities/empresa.entity';
+import { UserActiveInterface } from '@/common/interfaces/user-active.interface';
+import { Role } from '@/common/enums/rol.enum';
 
 @Injectable()
 export class UsersService {

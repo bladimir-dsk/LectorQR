@@ -8,9 +8,9 @@ import {
   IsString,
   MinLength,
 } from 'class-validator';
-import { Role } from 'src/common/enums/rol.enum';
+import { Role } from '@/common/enums/rol.enum';
 import { ApiProperty } from '@nestjs/swagger';
-import { Estatus } from 'src/common/enums/estatus.enum';
+import { Estatus } from '@/common/enums/estatus.enum';
 
 export class UpdateUserDto extends PartialType(CreateUserDto) {
   @IsOptional()

@@ -14,16 +14,13 @@ import {
 import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
-import { AuthGuard } from './guard/auth.guard';
 import { Request } from 'express';
-import { Roles } from './decorators/roles.decorator';
-import { RolesGuard } from './guard/roles.guard';
-import { Role } from '../common/enums/rol.enum';
+
+import { Role } from '@/common/enums/rol.enum';
 import { Auth } from './decorators/auth.decorator';
-import { ActiveUser } from 'src/common/decorators/active-user.decorator';
-import { UserActiveInterface } from 'src/common/interfaces/user-active.interface';
-import { UpdateUserDto } from 'src/users/dto/update-user.dto';
-import { UpdateProfileDto } from './dto/UpdateProfileDto';
+import { ActiveUser } from '@/common/decorators/active-user.decorator';
+import { UserActiveInterface } from '@/common/interfaces/user-active.interface';
+
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 //creamos una interfaz para poner el reques del profile y extender el reques

@@ -1,6 +1,6 @@
 //no usemos el src/../commo.....-- usaremos de manejar puras rutas relativas usando el ../../coommon
-import { Empresa } from 'src/empresa/entities/empresa.entity';
-import { Role } from '../../common/enums/rol.enum';
+import { Empresa } from '@/empresa/entities/empresa.entity';
+import { Role } from '@/common/enums/rol.enum';
 import {
   Column,
   CreateDateColumn,
@@ -13,9 +13,8 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
-import { Estatus } from 'src/common/enums/estatus.enum';
-import { Employee } from 'src/employees/entities/employee.entity';
-import { Student } from 'src/student/entities/student.entity';
+import { Estatus } from '@/common/enums/estatus.enum';
+import { Employee } from '@/employees/entities/employee.entity';
 
 @Entity()
 export class User {

@@ -5,12 +5,12 @@ import {
   Injectable,
   UnauthorizedException,
 } from '@nestjs/common';
-import { UsersService } from 'src/users/users.service';
+import { UsersService } from '@/users/users.service';
 import { RegisterDto } from './dto/register.dto';
 import * as bcryptjs from 'bcryptjs';
 import { LoginDto } from './dto/login.dto';
 import { JwtService } from '@nestjs/jwt';
-import { UserActiveInterface } from 'src/common/interfaces/user-active.interface';
+import { UserActiveInterface } from '@/common/interfaces/user-active.interface';
 
 @Injectable()
 export class AuthService {

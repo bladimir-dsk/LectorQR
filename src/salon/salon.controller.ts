@@ -12,10 +12,10 @@ import { SalonService } from './salon.service';
 import { CreateSalonDto } from './dto/create-salon.dto';
 import { UpdateSalonDto } from './dto/update-salon.dto';
 import { ApiTags, ApiBearerAuth, ApiQuery } from '@nestjs/swagger';
-import { Auth } from 'src/auth/decorators/auth.decorator';
-import { Role } from 'src/common/enums/rol.enum';
-import { ActiveUser } from 'src/common/decorators/active-user.decorator';
-import { UserActiveInterface } from 'src/common/interfaces/user-active.interface';
+import { Auth } from '@/auth/decorators/auth.decorator';
+import { Role } from '@/common/enums/rol.enum';
+import { ActiveUser } from '@/common/decorators/active-user.decorator';
+import { UserActiveInterface } from '@/common/interfaces/user-active.interface';
 import { FilterSalonDto } from './dto/filterSalon.dto';
 
 @Controller('salon')

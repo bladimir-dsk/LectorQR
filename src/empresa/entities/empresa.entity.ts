@@ -1,7 +1,7 @@
-import { Employee } from 'src/employees/entities/employee.entity';
-import { Salon } from 'src/salon/entities/salon.entity';
-import { Student } from 'src/student/entities/student.entity';
-import { User } from 'src/users/entities/user.entity';
+import { Employee } from '@/employees/entities/employee.entity';
+import { Salon } from '@/salon/entities/salon.entity';
+import { Student } from '@/student/entities/student.entity';
+import { User } from '@/users/entities/user.entity';
 import {
   Column,
   CreateDateColumn,

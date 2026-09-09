@@ -1,4 +1,4 @@
-import { Empresa } from 'src/empresa/entities/empresa.entity';
+import { Empresa } from '@/empresa/entities/empresa.entity';
 import {
   Column,
   CreateDateColumn,

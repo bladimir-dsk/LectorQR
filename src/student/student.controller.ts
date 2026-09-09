@@ -12,10 +12,10 @@ import { StudentService } from './student.service';
 import { CreateStudentDto } from './dto/create-student.dto';
 import { UpdateStudentDto } from './dto/update-student.dto';
 import { ApiBearerAuth, ApiQuery, ApiTags } from '@nestjs/swagger';
-import { Auth } from 'src/auth/decorators/auth.decorator';
-import { Role } from 'src/common/enums/rol.enum';
-import { ActiveUser } from 'src/common/decorators/active-user.decorator';
-import { UserActiveInterface } from 'src/common/interfaces/user-active.interface';
+import { Auth } from '@/auth/decorators/auth.decorator';
+import { Role } from '@/common/enums/rol.enum';
+import { ActiveUser } from '@/common/decorators/active-user.decorator';
+import { UserActiveInterface } from '@/common/interfaces/user-active.interface';
 import { FilterStudentDto } from './dto/filterDto.dto';
 
 @Controller('student')

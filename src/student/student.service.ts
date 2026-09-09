@@ -4,10 +4,10 @@ import { UpdateStudentDto } from './dto/update-student.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Student } from './entities/student.entity';
 import { Repository } from 'typeorm';
-import { Empresa } from 'src/empresa/entities/empresa.entity';
-import { UserActiveInterface } from 'src/common/interfaces/user-active.interface';
+import { Empresa } from '@/empresa/entities/empresa.entity';
+import { UserActiveInterface } from '@/common/interfaces/user-active.interface';
 import * as QRCode from 'qrcode';
-import { MailService } from 'src/mail/mail.service';
+import { MailService } from '@/mail/mail.service';
 import { FilterStudentDto } from './dto/filterDto.dto';
 
 @Injectable()

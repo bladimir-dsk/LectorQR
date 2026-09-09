@@ -1,14 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Type } from 'class-transformer';
-import {
-  IsBoolean,
-  IsInt,
-  IsOptional,
-  IsString,
-  MaxLength,
-  MinLength,
-  ValidateNested,
-} from 'class-validator';
+import { IsString, MaxLength, MinLength } from 'class-validator';
 
 export class CreateEmpresaDto {
   @ApiProperty()

@@ -8,13 +8,13 @@ import { UpdateEmployeeDto } from './dto/update-employee.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Employee } from './entities/employee.entity';
 import { DataSource, Repository, FindManyOptions, ILike } from 'typeorm';
-import { Empresa } from 'src/empresa/entities/empresa.entity';
-import { User } from 'src/users/entities/user.entity';
-import { UserActiveInterface } from 'src/common/interfaces/user-active.interface';
+import { Empresa } from '@/empresa/entities/empresa.entity';
+import { User } from '@/users/entities/user.entity';
+import { UserActiveInterface } from '@/common/interfaces/user-active.interface';
 import * as bcrypt from 'bcryptjs';
-import { Role } from 'src/common/enums/rol.enum';
+import { Role } from '@/common/enums/rol.enum';
 import { PaginationDto } from './dto/pagination.dto';
-import { Estatus } from 'src/common/enums/estatus.enum';
+import { Estatus } from '@/common/enums/estatus.enum';
 
 @Injectable()
 export class EmployeesService {

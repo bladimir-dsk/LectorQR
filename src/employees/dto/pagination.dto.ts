@@ -1,6 +1,6 @@
 import { Transform, Type } from 'class-transformer';
 import { IsBoolean, IsInt, IsOptional, IsString, Min } from 'class-validator';
-import { ParseBoolean } from 'src/auth/decorators/parse-boolean.decorator';
+import { ParseBoolean } from '@/auth/decorators/parse-boolean.decorator';
 
 export class PaginationDto {
   @IsOptional()

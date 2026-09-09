@@ -12,10 +12,10 @@ import { AccessLogService } from './access-log.service';
 import { CreateAccessLogDto } from './dto/create-access-log.dto';
 import { UpdateAccessLogDto } from './dto/update-access-log.dto';
 import { ApiBearerAuth, ApiQuery, ApiTags } from '@nestjs/swagger';
-import { Auth } from 'src/auth/decorators/auth.decorator';
-import { Role } from 'src/common/enums/rol.enum';
-import { ActiveUser } from 'src/common/decorators/active-user.decorator';
-import { UserActiveInterface } from 'src/common/interfaces/user-active.interface';
+import { Auth } from '@/auth/decorators/auth.decorator';
+import { Role } from '@/common/enums/rol.enum';
+import { ActiveUser } from '@/common/decorators/active-user.decorator';
+import { UserActiveInterface } from '@/common/interfaces/user-active.interface';
 import { FilterAccessLogDto } from './dto/filter-access-log.dto';
 
 @ApiTags('access-log')
